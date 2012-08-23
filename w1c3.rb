@@ -54,7 +54,7 @@ questions are welcome.
 
 
 
- multiplication_table (integer, heading = '', decorate = false)
+ multiplication_table (size, heading = '', decorate = false)
   returns a string object.
 table1 = multiplication_table 9, 'Times Table to 9', true
 table2 = multiplication_table 20
@@ -66,7 +66,7 @@ puts table2
 Here are the rules:
 
 Required: method needs to provide an object. Don’t just print to screen, it isn’t the goal.
-The method needs to accept an Integer.
+The method needs to accept an size.
 Required: the table object should have uniform spacing throughout the table.
 Optional: You should be able to decorate the table with and without a heading and with and without decoration when asked for.
 Preferred but optional: The heading may be Centered to the table, and the decoration (if the decoration is there). The decoration should hang one space (on each side) over the area taken by the numeric matrix. The heading should be on or within the same guide. (As shown in the 9x9 grid).
@@ -82,24 +82,29 @@ That is if you are using minitest (built into Ruby 1.9), or Test::Unit or Rspec 
 =end
 
 
-def multiplication_table(integer=0, heading = '', decorate = false)
+def multiplication_table(size, heading = '', decorate = false)
   table = []
+  spacing_tracker = []
+  line_length = 0
+  
+  # puts "#{size}" + " " + "#{heading}" + " " + "#{decorate}"
   
   if not heading.nil? 
     table.push(heading + "\n")
+    puts ""
   end
   
+  size.times do |n|
+    # account for bottom row length spacing, (each number + 1 space)
+      line_length += ((n+1) * size).to_s.length + 1
+      spacing_tracker.push((((n+1) * size)).to_s.length)
+  end
+  # finally add one extra character
+  line_length += 1
+
+  
   if decorate 
-    # first need to get the biggest width which means length of input integer ** 2
-    
-    l = 0
-    integer.times do |n|
-      l += ((n+1) * integer).to_s.length
-    end
-    l += (integer - 1)
-    
-    # line_length  = (integer ** 2).to_s.length.to_i * integer + (integer - 1) 
-    line_length = l+2 # 2 extra chars for beginning and ending
+    # print out actual header/footer
     header_line = ""
     line_length.times { header_line << "=" }
     footer_line = header_line
@@ -108,13 +113,14 @@ def multiplication_table(integer=0, heading = '', decorate = false)
     table.push(header_line)
   end
   
-  x = y = integer  # x and y coordinates
+  x = y = size  # x and y coordinates
   y.times do |y|
     line = ""
     x.times do |x| 
-      line += ((x+1) * (y+1)).to_s + " "
+      line += format("%#{spacing_tracker[x]+1}d", ((x+1) * (y+1)).to_s)
     end
-	line << "\n"
+
+  line << "\n"
     table.push(line)    
   end
   
@@ -123,18 +129,17 @@ def multiplication_table(integer=0, heading = '', decorate = false)
   end
 end
 
-table1 = multiplication_table(1, "Times table to 1", true)
-table2 = multiplication_table(2, "Times table to 2", true)
-table3 = multiplication_table(3, "Times table to 3", true)
-table4 = multiplication_table(4, "Times table to 4", true)
-table5 = multiplication_table(5, "Times table to 5", true)
+
+table1 = multiplication_table 9, 'Times Table to 9', true
+# table2 = multiplication_table 20
+table2 = multiplication_table(20, '', true)
+
+# table1 = multiplication_table(2)
+# table2 = multiplication_table(5, "Times table to 5", true)
+# table3 = multiplication_table(20, "Times table to 20", true)
 
 puts table1
 puts
 puts table2
-puts
-puts table3
-puts
-puts table4
-puts
-puts table5
+# puts
+# puts table3
