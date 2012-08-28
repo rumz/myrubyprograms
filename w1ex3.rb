@@ -8,13 +8,10 @@
 	This program takes seconds and converts it to years
 =end
 
-def ConvertSecondsToYears( age_in_seconds )
+def convert_seconds_to_years( age_in_seconds )
   age_in_seconds.to_f / (60 * 60 * 24 * 365)
 end
 
-#age = ConvertSecondsToYears(seconds)
-#age = format("%.2f", age)
-#puts age
 
 puts "Give me a number in seconds and I will return the number of years it represents. "
 STDOUT.flush

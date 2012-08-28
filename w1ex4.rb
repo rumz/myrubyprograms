@@ -3,13 +3,9 @@
 
 # This program takes years and converts it to minutes 
 
-  # 60 = 1 min
-  # 3600 = 1 hr
-  # 86400 = 1 day
-  # 31536000 = 1 year
 
 def ConvertYearsToMinutes( years )
-  years.to_f * (31536000 / 60)
+  years.to_f * (60 * 24 * 365)
 end
 
 puts "How many years do you want to convert? "
