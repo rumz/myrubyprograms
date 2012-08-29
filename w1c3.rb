@@ -15,11 +15,12 @@ def multiplication_table(size, heading = '', decorate = false)
     table.push(heading + "\n")
   end
   
-  size.times do |n|
+  size > 0 ? header=size : header=1
+  header.times do |n|
     # account for bottom row length spacing, (each number + 1 space)
-      line_length += ((n+1) * size).to_s.length + 1
-      spacing_tracker.push((((n+1) * size)).to_s.length)
-  end if size > 0
+      line_length += ((n+1) * header).to_s.length + 1
+      spacing_tracker.push((((n+1) * header)).to_s.length)
+  end 
   # finally add one extra character
   line_length += 1
 
@@ -29,7 +30,7 @@ def multiplication_table(size, heading = '', decorate = false)
     line_length.times { header_line << "=" }
     header_line << "\n"
     table.push(header_line)
-  end if decorate and size > 0
+  end if decorate 
   
   x = y = size  # x and y coordinates
   y.times do |y| 
@@ -38,12 +39,15 @@ def multiplication_table(size, heading = '', decorate = false)
     x.times do |x| 
       line += format("%#{spacing_tracker[x]+1}d", ((x+1) * (y+1)).to_s)
     end
-
-  line << "\n"
-    table.push(line)    
+    line << "\n"
+    table.push(line)
   end
+
+  table.push(" 0\n") if size == 0
+  
   
   table.push(header_line) if decorate
+  puts table.inspect
 
   return table;
 end
@@ -51,8 +55,7 @@ end
 multiplication_tables = [multiplication_table(1, '1x1 Table', true),
                          multiplication_table(5, '5x5 Table without decoration', false),
                          multiplication_table(10, '', true),
-                         multiplication_table(0, '', true)]
-
+                         multiplication_table(0, '0x0', true)]
 
 multiplication_tables.each do |table|
   puts table
