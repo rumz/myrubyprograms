@@ -21,7 +21,7 @@ leap = case
 end
 
 def years_to_minutes(year)
-  leap_year?(year) ? (60 * 24 * 366) : (60 * 24 * 365)
+  (60 * 24) * (leap_year?(year) ? 366 : 365)
 end
 
 
