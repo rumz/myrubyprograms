@@ -47,7 +47,7 @@ def multiplication_table(size, heading = '', decorate = false)
   
   
   table.push(header_line) if decorate
-  puts table.inspect
+#  puts table.inspect
 
   return table;
 end
