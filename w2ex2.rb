@@ -6,8 +6,9 @@ def mtdarry
    puts num
  end
 end
-=end
 
+mtdarry
+=end
 
 #and the program:
 
@@ -17,5 +18,4 @@ def mtdarry
  end
 end
 
-# mtdarry
 puts mtdarry
