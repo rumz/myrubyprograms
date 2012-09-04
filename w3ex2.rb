@@ -44,8 +44,6 @@ print "Please enter the name of the file: "
 STDOUT.flush
 file_name = gets.chomp
 
-
-
 File.open(file_name, 'r') do |file_line|
   while line = file_line.gets 
     line.sub!('word', 'inserted word')
@@ -54,5 +52,7 @@ File.open(file_name, 'r') do |file_line|
   end
 end if File::file?(file_name)
 
-File.open(file_name, 'w') { |new_file| new_file.puts(file_contents)}
+File.open(file_name, 'w') do |new_file| 
+  new_file.puts(file_contents)
+end if File::file?(file_name)
 
