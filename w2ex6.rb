@@ -8,5 +8,4 @@ end
 puts x
 puts pqr
 
-
-# adding a comment so i can commit this and try to get to a invalid state when commiting so i can research how to reset this change
+# this commit is for testing purposes only
