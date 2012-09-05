@@ -18,3 +18,15 @@ Also, have a look at the splat operator:
 
 a = [*1930...1951] # splat operator
 =end
+
+
+# obviously out of range: 1929, 1952
+# since ... is exclusive then 1930 and 1951 will also not be included
+
+a = (1930...1951).to_a
+puts a[rand(a.size)]
+
+a = [*1930..1951] # splat operator
+puts a
+
+# the splat operator seems to make ranges "expand/explode" 
