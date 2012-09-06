@@ -1,4 +1,4 @@
-w3ex7.rb
+# w3ex7.rb
 
 =begin
 Exercise7. First of all, I'd like to thank Peter Cooper for allowing me to use this exercise.
@@ -34,3 +34,34 @@ Split on double newlines to find out how many paragraphs there are.
 Perform calculations to work out the averages.
 Create a new, blank Ruby source file and save it as analyzer.rb in your Ruby folder.
 =end
+
+
+all_characters_count = no_whitespace_count = line_count = 0
+word_count = sentence_count = paragraph_count = 0
+
+file_name = 'text.txt'
+all_text = ''
+File.open(file_name, 'r') do |f1|
+  while line = f1.gets
+    all_characters_count += line.length
+    no_whitespace_count += line.split(' ').join("").length
+    line_count  += 1
+    word_count  += line.split(' ').length
+    all_text  << line
+  end
+
+  sentence_count  += all_text.split(/[?]|[!]|[.]/).length
+  paragraph_count += all_text.split("\n\n").length
+
+  words_per_sentence = word_count.to_f / sentence_count
+  sentences_per_paragraph = sentence_count.to_f / paragraph_count
+
+  puts "Full Character Count: #{all_characters_count}"
+  puts "Character Count excluding spaces: #{no_whitespace_count}"
+  puts "Line Count: #{line_count}"
+  puts "Word Count: #{word_count}"
+  puts "Sentence Count: #{sentence_count}"
+  puts "Paragraph Count: #{paragraph_count}"
+  puts "Average number of words per sentence: %.2f" % words_per_sentence
+  puts "Average number of sentences per paragraph: %.2f" % sentences_per_paragraph
+end if File::file?(file_name)
