@@ -1,4 +1,4 @@
-w3ex6.rb
+# w3ex6.rb
 =begin
 Exercise6. Write a Deaf Grandma program. Whatever you say to grandma 
 (whatever you type in), she should respond with HUH?! SPEAK UP, SONNY!,
@@ -18,3 +18,22 @@ Grandma responds: HUH?! SPEAK UP, SONNY!
 You enter: HELLO GRANDMA
 Grandma responds: NO, NOT SINCE 1938!
 =end
+
+
+input = ''
+years = [*1930...1951]
+
+puts "Is their something you want to tell Lola?"
+while input != 'BYE'
+  print "> "
+  STDOUT.flush
+  input = gets.chomp
+  if input != input.upcase 
+    puts "HUH?! SPEAK UP, SONNY!"
+  elsif input == 'BYE'
+    puts "BYE, SONNY!"
+    exit
+  else
+    puts "NO, NOT SINCE #{years[rand(years.size)]}"
+  end
+end
