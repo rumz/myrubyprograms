@@ -32,7 +32,6 @@ while input != 'BYE'
     puts "HUH?! SPEAK UP, SONNY!"
   elsif input == 'BYE'
     puts "BYE, SONNY!"
-    exit
   else
     puts "NO, NOT SINCE #{years[rand(years.size)]}"
   end
