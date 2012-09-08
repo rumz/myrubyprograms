@@ -1,5 +1,5 @@
+# w3ex13.rb
 =begin
-w3ex13.rb
 Exercise13 Ruby is a DRY language. Ruby helps you keep your code short and concise. DRY stands for: Don’t Repeat Yourself Syntactically, it’s a very efficient language: you can express the same thing with less lines of code. As we know, computers are fast enough that more lines of code do not slow them down. But what about you? When it comes to debugging and maintaining, the more code you have to deal with, the harder it is to see what it does and find the problems that need fixing. Here's some code:
 
 # The long way
@@ -10,3 +10,6 @@ record[:phone] = “919371006659”
  
 Rewrite, the above code in one line, the DRY (or Ruby) way.
 =end
+
+
+record = {:name => "Satish", :email => "mail@satishtalim.com", :phone => "919371006659"}
