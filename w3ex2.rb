@@ -54,5 +54,5 @@ end if File::file?(file_name)
 
 File.open(file_name, 'w') do |new_file| 
   new_file.puts(file_contents)
-end if File::file?(file_name)
+end
 
