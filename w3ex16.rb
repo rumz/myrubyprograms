@@ -10,4 +10,11 @@ Answers:
 4. a.sort { |l, r| l.length <=> r.length }
 5. a.sort_by { |s| s }
 6. a.sort_by { |s| s.length }
- =end
+=end
+
+4 & 6 sort by string length
+
+# 1 sorts by alphanumeric 
+2 gives out an error 
+3 sorts the same as 1 
+5 sorts same as 1 and 3
