@@ -9,4 +9,13 @@ Change your working directory to tmp
 Display your current working directory.
 Go back to your original directory.
 Delete the tmp directory.
+
 =end
+
+
+puts Dir.pwd
+Dir.mkdir('tmp')
+Dir.chdir('tmp')
+puts Dir.pwd
+Dir.chdir('..')
+Dir.rmdir('tmp')
