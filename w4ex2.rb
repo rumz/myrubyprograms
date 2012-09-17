@@ -15,16 +15,22 @@ class Rectangle
   end
 
   def area 
-    area = @area
+    @area
   end
 
   def perimeter
-    perimeter = @perimeter
+    @perimeter
   end 
 end
 
+def decorate
+  puts '=' * 30
+end
 
+
+
+decorate
 r = Rectangle.new(23.45, 34.67)
-puts "Area is = #{format('%.2f', r.area)}"
-puts "Perimeter is = #{format('%.2f', r.perimeter)}"
-
+puts "Area is %.2f" %  r.area
+puts "Perimeter is %.2f" % r.perimeter
+decorate
