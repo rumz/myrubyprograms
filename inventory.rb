@@ -11,29 +11,4 @@ Now, write another Ruby script that displays on the screen all the files that ha
 =end
 
 # First inventory.rb script
-#Dir.glob('**/*').sort!.each {|item| puts "#{item}" }
-
-# Second iventory.rb script 
-
-file1 = 'old-inventory.txt'
-file2 = 'new-inventory.txt'
-
-file1_contents = []
-file2_contents = []
-
-File.open(file1, "r") do |io|
-  while line = io.gets
-    file1_contents.push(line)
-  end  
-end if File::file?(file1)
-
-File.open(file2, "r") do |io|
-  while line = io.gets
-    file2_contents.push(line)
-  end  
-end if File::file?(file2) 
-
-diff = []
-file2_contents.each { |item| diff.push(item) unless file1_contents.include?(item) }
-
-diff.each { |item| p item}
+Dir.glob('**/*').sort!.each {|item| puts "#{item}" }
