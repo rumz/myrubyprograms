@@ -11,4 +11,4 @@ Now, write another Ruby script that displays on the screen all the files that ha
 =end
 
 # First inventory.rb script
-Dir.glob('**/*').sort!.each {|item| p "#{item}" }
+Dir.glob('**/*').sort!.each {|item| print "#{item}\n" }
