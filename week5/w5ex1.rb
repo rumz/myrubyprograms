@@ -26,11 +26,10 @@ class UnpredictableString < String
   end
   
   def display
-    puts @current_string
+    p scramble
   end
 
 end
 
-us = UnpredictableString.new()
-us.display
-p us.scramble
+random_string = UnpredictableString.new()
+random_string.display
