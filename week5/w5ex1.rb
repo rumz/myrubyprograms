@@ -26,7 +26,7 @@ class UnpredictableString < String
   end
   
   def display
-    p scramble
+    puts scramble
   end
 
 end
