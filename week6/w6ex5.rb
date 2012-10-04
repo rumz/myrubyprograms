@@ -10,21 +10,19 @@ end
 def load_game(file)
   os_save_time = File.ctime(file)
   f = open(file, 'r')
-  f.seek(-11, IO::SEEK_END)
-  embedded_time = f.readline
-  f.close
+  while line = f.gets
+    embedded_time = line.chomp
+  end
   raise 'I suspect you of cheating' if os_save_time != Time.at(embedded_time.to_i)
 end
 
 
 save_game("game.sav")
-sleep(2)
-load_game("game.sav")
-
+#sleep(1)
 load_game("game.sav") # => "Your saved score is 1000."
 # Now let's cheat by increasing our score to 9000
-open("game.sav", "r+b") { |f| f.write("9") }
-load_game("game.sav") # RuntimeError: I suspect you of cheating.
+#open("game.sav", "r+b") { |f| f.write("9") }
+#load_game("game.sav") # RuntimeError: I suspect you of cheating.
 
 
 
